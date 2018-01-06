@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="search-form"></div>
+    <div class="opration-button">
+        <form action='/file/upload' id="uploadForm" enctype="multipart/form-data" method='post'>
+            {% module xsrf_form_html() %}
+            <input type="file" id="exlFile" name="fileName" class="btn btn-default"  accept=".csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"></input>
+            <input type="button" class="btn" onclick="fileUploadExl2()" value="上传Excle">
+       </form>
+    </div>
+    <div class="data-list">
+        <table class="data-table table">
+            <thead>
+                <th>序号</th>
+                <th>状态</th>
+                <th>日期</th>
+                <th>姓名</th>
+                <th>手机</th>
+                <th>地址</th>
+                <th>快递公司</th>
+                <th>运单号</th>
+                <th>运费</th>
+                <th>金额</th>
+                <th>备注</th>
+                <th>核对金额</th>
+                <th>核对明细</th>
+            </thead>
+            <tbody>
+                <td>1</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tbody>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        function fileUploadExl(){
+            
+            var formData = new FormData();
+            formData.append('_xsrf', $('input[name=_xsrf]').val());
+            formData.append('fileName', $('input[type=file]')[0].files[0]);
+            $.ajax({
+               url: '/file/upload',
+               data: formData,
+               type: 'POST',
+               contentType: false,
+               processData: false,
+               success: function(data){
+                   var obj = jQuery.parseJSON(data);
+                   alert(obj.result);
+                   // TODO
+               },
+               error: function(data){
+                   var obj = jQuery.parseJSON(data);
+                   alert(data.result);
+               }
+           })
+        }
+
+
+        function fileUploadExl2(){
+          var actionUrl = '/file/upload';
+          var oFile = document.getElementById('exlFile').files[0];    //读取文件
+          var vFD = new FormData(document.getElementById('uploadForm')),    //建立请求和数据
+              oXHR = new XMLHttpRequest();
+          oXHR.addEventListener('load', function(resUpload) {
+              //成功
+              console.log(resUpload)
+          }, false);
+          oXHR.addEventListener('success', function(resUpload) {
+              //成功
+              console.log(resUpload)
+          }, false);
+          oXHR.addEventListener('error', function() {
+              //失败
+          }, false);
+          oXHR.addEventListener('abort', function() {
+              //上传中断
+          }, false);
+          oXHR.open('POST', actionUrl);
+          oXHR.send(vFD);
+        }
+
+    </script>
+
+{% module Template("_macros.html", pager=pager, url=base_url, params=order_search_params.to_url_params()) %}
+
+{% end %}

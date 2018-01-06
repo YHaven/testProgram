@@ -1,0 +1,8 @@
+sqlalchemy==1.0.15
+tornadis==0.8.0
+futures==3.0.5
+alembic==0.9.1
+apscheduler==3.3.1
+openpyxl==2.4.9
+tornado==4.5.2
+MySQL-python==1.2.5

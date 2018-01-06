@@ -1,0 +1,672 @@
+2017-12-31 23:51:51,487 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET / (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': 'localhost:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 'Connection': 'keep-alive', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\home.py", line 14, in get
+    self.render("index.html", base_url=base_url)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 862, in render_string
+    t = loader.load(template_name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 427, in load
+    self.templates[name] = self._create_template(name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 454, in _create_template
+    with open(path, "rb") as f:
+IOError: [Errno 2] No such file or directory: 'E:\\pythonFile\\pythonProgram\\pythonSrc\\srcReal\\template\\index.html'
+2017-12-31 23:51:51,507 - tornado.application - web.py[line:1038] - ERROR - Uncaught exception in write_error
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1036, in send_error
+    self.write_error(status_code, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\base.py", line 66, in write_error
+    self.render("404.html")
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 862, in render_string
+    t = loader.load(template_name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 427, in load
+    self.templates[name] = self._create_template(name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 454, in _create_template
+    with open(path, "rb") as f:
+IOError: [Errno 2] No such file or directory: 'E:\\pythonFile\\pythonProgram\\pythonSrc\\srcReal\\template\\404.html'
+2017-12-31 23:51:51,509 - tornado.access - web.py[line:2063] - ERROR - 500 GET / (::1) 163.00ms
+2017-12-31 23:51:55,670 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET / (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': 'localhost:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\home.py", line 14, in get
+    self.render("index.html", base_url=base_url)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 862, in render_string
+    t = loader.load(template_name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 427, in load
+    self.templates[name] = self._create_template(name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 454, in _create_template
+    with open(path, "rb") as f:
+IOError: [Errno 2] No such file or directory: 'E:\\pythonFile\\pythonProgram\\pythonSrc\\srcReal\\template\\index.html'
+2017-12-31 23:51:55,671 - tornado.application - web.py[line:1038] - ERROR - Uncaught exception in write_error
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1036, in send_error
+    self.write_error(status_code, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\base.py", line 66, in write_error
+    self.render("404.html")
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 862, in render_string
+    t = loader.load(template_name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 427, in load
+    self.templates[name] = self._create_template(name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 454, in _create_template
+    with open(path, "rb") as f:
+IOError: [Errno 2] No such file or directory: 'E:\\pythonFile\\pythonProgram\\pythonSrc\\srcReal\\template\\404.html'
+2017-12-31 23:51:55,671 - tornado.access - web.py[line:2063] - ERROR - 500 GET / (::1) 4.00ms
+2017-12-31 23:52:34,365 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET / (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8888', method='GET', uri='/', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 'Connection': 'keep-alive', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\home.py", line 14, in get
+    self.render("index.html", base_url=base_url)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 862, in render_string
+    t = loader.load(template_name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 427, in load
+    self.templates[name] = self._create_template(name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 454, in _create_template
+    with open(path, "rb") as f:
+IOError: [Errno 2] No such file or directory: 'E:\\pythonFile\\pythonProgram\\pythonSrc\\srcReal\\template\\index.html'
+2017-12-31 23:52:34,367 - tornado.application - web.py[line:1038] - ERROR - Uncaught exception in write_error
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1036, in send_error
+    self.write_error(status_code, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\base.py", line 66, in write_error
+    self.render("404.html")
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 862, in render_string
+    t = loader.load(template_name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 427, in load
+    self.templates[name] = self._create_template(name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 454, in _create_template
+    with open(path, "rb") as f:
+IOError: [Errno 2] No such file or directory: 'E:\\pythonFile\\pythonProgram\\pythonSrc\\srcReal\\template\\404.html'
+2017-12-31 23:52:34,368 - tornado.access - web.py[line:2063] - ERROR - 500 GET / (127.0.0.1) 3.00ms
+2017-12-31 23:52:46,405 - tornado.access - web.py[line:2063] - WARNING - 404 GET /super/init (127.0.0.1) 0.00ms
+2017-12-31 23:52:46,441 - tornado.access - web.py[line:2063] - WARNING - 404 GET /favicon.ico (127.0.0.1) 2.00ms
+2017-12-31 23:57:10,036 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET /super/init (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8888', method='GET', uri='/super/init', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1069, in run
+    yielded = self.gen.send(value)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\super.py", line 13, in get
+    self.render("super/init.html")
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 862, in render_string
+    t = loader.load(template_name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 427, in load
+    self.templates[name] = self._create_template(name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 454, in _create_template
+    with open(path, "rb") as f:
+IOError: [Errno 2] No such file or directory: 'E:\\pythonFile\\pythonProgram\\pythonSrc\\srcReal\\template\\super/init.html'
+2017-12-31 23:57:10,038 - tornado.application - web.py[line:1038] - ERROR - Uncaught exception in write_error
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1036, in send_error
+    self.write_error(status_code, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\base.py", line 66, in write_error
+    self.render("404.html")
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 862, in render_string
+    t = loader.load(template_name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 427, in load
+    self.templates[name] = self._create_template(name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 454, in _create_template
+    with open(path, "rb") as f:
+IOError: [Errno 2] No such file or directory: 'E:\\pythonFile\\pythonProgram\\pythonSrc\\srcReal\\template\\404.html'
+2017-12-31 23:57:10,039 - tornado.access - web.py[line:2063] - ERROR - 500 GET /super/init (127.0.0.1) 32.00ms
+2017-12-31 23:57:16,607 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET / (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8888', method='GET', uri='/', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 'Connection': 'keep-alive', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\home.py", line 14, in get
+    self.render("index.html", base_url=base_url)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 862, in render_string
+    t = loader.load(template_name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 427, in load
+    self.templates[name] = self._create_template(name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 454, in _create_template
+    with open(path, "rb") as f:
+IOError: [Errno 2] No such file or directory: 'E:\\pythonFile\\pythonProgram\\pythonSrc\\srcReal\\template\\index.html'
+2017-12-31 23:57:16,607 - tornado.application - web.py[line:1038] - ERROR - Uncaught exception in write_error
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1036, in send_error
+    self.write_error(status_code, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\base.py", line 66, in write_error
+    self.render("404.html")
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 862, in render_string
+    t = loader.load(template_name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 427, in load
+    self.templates[name] = self._create_template(name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 454, in _create_template
+    with open(path, "rb") as f:
+IOError: [Errno 2] No such file or directory: 'E:\\pythonFile\\pythonProgram\\pythonSrc\\srcReal\\template\\404.html'
+2017-12-31 23:57:16,607 - tornado.access - web.py[line:2063] - ERROR - 500 GET / (127.0.0.1) 0.00ms
+2017-12-31 23:57:20,055 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET / (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8888', method='GET', uri='/', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\home.py", line 14, in get
+    self.render("index.html", base_url=base_url)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 862, in render_string
+    t = loader.load(template_name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 427, in load
+    self.templates[name] = self._create_template(name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 454, in _create_template
+    with open(path, "rb") as f:
+IOError: [Errno 2] No such file or directory: 'E:\\pythonFile\\pythonProgram\\pythonSrc\\srcReal\\template\\index.html'
+2017-12-31 23:57:20,055 - tornado.application - web.py[line:1038] - ERROR - Uncaught exception in write_error
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1036, in send_error
+    self.write_error(status_code, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\base.py", line 66, in write_error
+    self.render("404.html")
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 862, in render_string
+    t = loader.load(template_name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 427, in load
+    self.templates[name] = self._create_template(name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 454, in _create_template
+    with open(path, "rb") as f:
+IOError: [Errno 2] No such file or directory: 'E:\\pythonFile\\pythonProgram\\pythonSrc\\srcReal\\template\\404.html'
+2017-12-31 23:57:20,055 - tornado.access - web.py[line:2063] - ERROR - 500 GET / (127.0.0.1) 0.00ms
+2017-12-31 23:57:23,726 - tornado.access - web.py[line:2063] - WARNING - 404 GET /python%20main.py%20--master=true%20--port=8888 (127.0.0.1) 0.00ms
+2017-12-31 23:57:28,854 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET /super/init (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8888', method='GET', uri='/super/init', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 'Connection': 'keep-alive', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1069, in run
+    yielded = self.gen.send(value)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\super.py", line 13, in get
+    self.render("super/init.html")
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 862, in render_string
+    t = loader.load(template_name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 427, in load
+    self.templates[name] = self._create_template(name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 454, in _create_template
+    with open(path, "rb") as f:
+IOError: [Errno 2] No such file or directory: 'E:\\pythonFile\\pythonProgram\\pythonSrc\\srcReal\\template\\super/init.html'
+2017-12-31 23:57:28,854 - tornado.application - web.py[line:1038] - ERROR - Uncaught exception in write_error
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1036, in send_error
+    self.write_error(status_code, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\base.py", line 66, in write_error
+    self.render("404.html")
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 862, in render_string
+    t = loader.load(template_name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 427, in load
+    self.templates[name] = self._create_template(name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 454, in _create_template
+    with open(path, "rb") as f:
+IOError: [Errno 2] No such file or directory: 'E:\\pythonFile\\pythonProgram\\pythonSrc\\srcReal\\template\\404.html'
+2017-12-31 23:57:28,854 - tornado.access - web.py[line:2063] - ERROR - 500 GET /super/init (127.0.0.1) 16.00ms
+2018-01-01 00:00:11,308 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET /super/init (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8888', method='GET', uri='/super/init', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1069, in run
+    yielded = self.gen.send(value)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\super.py", line 13, in get
+    self.render("super/init.html")
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 865, in render_string
+    return t.generate(**namespace)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 348, in generate
+    return execute()
+  File "super/init_html.generated.py", line 23, in _tt_execute
+    if handler.has_message():  # super/init.html:13
+AttributeError: 'SuperHandler' object has no attribute 'has_message'
+2018-01-01 00:00:11,345 - tornado.application - web.py[line:1038] - ERROR - Uncaught exception in write_error
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1036, in send_error
+    self.write_error(status_code, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\base.py", line 66, in write_error
+    self.render("404.html")
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 865, in render_string
+    return t.generate(**namespace)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 348, in generate
+    return execute()
+  File "404_html.generated.py", line 5, in _tt_execute
+    from model.site_info import SiteCollection  # base.html:2
+ImportError: No module named site_info
+2018-01-01 00:00:11,349 - tornado.access - web.py[line:2063] - ERROR - 500 GET /super/init (127.0.0.1) 116.00ms
+2018-01-01 00:00:13,469 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET /super/init (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8888', method='GET', uri='/super/init', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1069, in run
+    yielded = self.gen.send(value)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\super.py", line 13, in get
+    self.render("super/init.html")
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 865, in render_string
+    return t.generate(**namespace)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 348, in generate
+    return execute()
+  File "super/init_html.generated.py", line 23, in _tt_execute
+    if handler.has_message():  # super/init.html:13
+AttributeError: 'SuperHandler' object has no attribute 'has_message'
+2018-01-01 00:00:13,469 - tornado.application - web.py[line:1038] - ERROR - Uncaught exception in write_error
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1036, in send_error
+    self.write_error(status_code, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\base.py", line 66, in write_error
+    self.render("404.html")
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 865, in render_string
+    return t.generate(**namespace)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 348, in generate
+    return execute()
+  File "404_html.generated.py", line 5, in _tt_execute
+    from model.site_info import SiteCollection  # base.html:2
+ImportError: No module named site_info
+2018-01-01 00:00:13,469 - tornado.access - web.py[line:2063] - ERROR - 500 GET /super/init (127.0.0.1) 16.00ms
+2018-01-01 00:48:08,140 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET / (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8888', method='GET', uri='/', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 'Connection': 'keep-alive', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\home.py", line 14, in get
+    self.render("index.html", base_url=base_url)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 865, in render_string
+    return t.generate(**namespace)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 348, in generate
+    return execute()
+  File "index_html.generated.py", line 5, in _tt_execute
+    from model.site_info import SiteCollection  # base.html:2
+ImportError: No module named site_info
+2018-01-01 00:48:08,144 - tornado.access - web.py[line:2063] - ERROR - 500 GET / (127.0.0.1) 54.00ms
+2018-01-01 00:50:39,316 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET / (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8888', method='GET', uri='/', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\home.py", line 14, in get
+    self.render("index.html", base_url=base_url)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 865, in render_string
+    return t.generate(**namespace)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 348, in generate
+    return execute()
+  File "index_html.generated.py", line 57, in _tt_execute
+    for menu in SiteCollection.menus:  # base.html:43
+TypeError: 'NoneType' object is not iterable
+2018-01-01 00:50:39,319 - tornado.access - web.py[line:2063] - ERROR - 500 GET / (127.0.0.1) 85.00ms
+2018-01-01 00:50:41,470 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET / (127.0.0.1)
+HTTPServerRequest(protocol='http', host='127.0.0.1:8888', method='GET', uri='/', version='HTTP/1.1', remote_ip='127.0.0.1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': '127.0.0.1:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\home.py", line 14, in get
+    self.render("index.html", base_url=base_url)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 865, in render_string
+    return t.generate(**namespace)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 348, in generate
+    return execute()
+  File "index_html.generated.py", line 57, in _tt_execute
+    for menu in SiteCollection.menus:  # base.html:43
+TypeError: 'NoneType' object is not iterable
+2018-01-01 00:50:41,474 - tornado.access - web.py[line:2063] - ERROR - 500 GET / (127.0.0.1) 42.00ms
+2018-01-01 10:21:41,625 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET / (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0', 'Connection': 'keep-alive', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\home.py", line 14, in get
+    self.render("index.html", base_url=base_url)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 865, in render_string
+    return t.generate(**namespace)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 348, in generate
+    return execute()
+  File "index_html.generated.py", line 57, in _tt_execute
+    for menu in SiteCollection.menus:  # base.html:43
+TypeError: 'NoneType' object is not iterable
+2018-01-01 10:21:41,671 - tornado.access - web.py[line:2063] - ERROR - 500 GET / (::1) 297.00ms
+2018-01-01 13:14:41,368 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET / (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0', 'Connection': 'keep-alive', 'If-None-Match': '"f86f064c636d16d669b38231b0dc6c6c524b237e"', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\home.py", line 14, in get
+    self.render("index.html", base_url=base_url)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 865, in render_string
+    return t.generate(**namespace)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 348, in generate
+    return execute()
+  File "index_html.generated.py", line 20, in _tt_execute
+    if pager and pager.result:  # index.html:15 (via index.html:14)
+NameError: global name 'pager' is not defined
+2018-01-01 13:14:41,368 - tornado.access - web.py[line:2063] - ERROR - 500 GET / (::1) 16.00ms
+2018-01-01 13:23:04,627 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET / (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0', 'Connection': 'keep-alive', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\home.py", line 15, in get
+    self.render("index.html", base_url=base_url)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 865, in render_string
+    return t.generate(**namespace)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 348, in generate
+    return execute()
+  File "index_html.generated.py", line 20, in _tt_execute
+    if pager and pager.result:  # index.html:15 (via index.html:14)
+NameError: global name 'pager' is not defined
+2018-01-01 13:23:04,627 - tornado.access - web.py[line:2063] - ERROR - 500 GET / (::1) 16.00ms
+2018-01-01 13:23:26,703 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET / (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0', 'Connection': 'keep-alive', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\home.py", line 15, in get
+    self.render("index.html", base_url=base_url)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 865, in render_string
+    return t.generate(**namespace)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 348, in generate
+    return execute()
+  File "index_html.generated.py", line 20, in _tt_execute
+    if pager and pager.result:  # index.html:15 (via index.html:14)
+NameError: global name 'pager' is not defined
+2018-01-01 13:23:26,703 - tornado.access - web.py[line:2063] - ERROR - 500 GET / (::1) 16.00ms
+2018-01-01 13:24:24,940 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET / (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0', 'Connection': 'keep-alive', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\home.py", line 15, in get
+    self.render("index.html", base_url=base_url)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 865, in render_string
+    return t.generate(**namespace)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 348, in generate
+    return execute()
+  File "index_html.generated.py", line 20, in _tt_execute
+    _tt_tmp = _tt_modules.Template("_macros.html", pager=pager, url=base_url, params=article_search_params.to_url_params())  # index.html:18 (via index.html:14)
+NameError: global name 'pager' is not defined
+2018-01-01 13:24:24,940 - tornado.access - web.py[line:2063] - ERROR - 500 GET / (::1) 16.00ms
+2018-01-01 19:01:43,855 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET / (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0', 'Connection': 'keep-alive', 'Pragma': 'no-cache', 'Cache-Control': 'no-cache', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\home.py", line 15, in get
+    self.render("index.html", base_url=base_url)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 865, in render_string
+    return t.generate(**namespace)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 348, in generate
+    return execute()
+  File "index_html.generated.py", line 20, in _tt_execute
+    _tt_tmp = _tt_modules.Template("_macros.html", pager=pager, url=base_url, params=article_search_params.to_url_params())  # index.html:18 (via index.html:14)
+NameError: global name 'pager' is not defined
+2018-01-01 19:01:43,855 - tornado.access - web.py[line:2063] - ERROR - 500 GET / (::1) 0.00ms
+2018-01-01 20:20:17,022 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET / (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0', 'Connection': 'keep-alive', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\home.py", line 15, in get
+    self.render("index.html", base_url=base_url)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 865, in render_string
+    return t.generate(**namespace)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 348, in generate
+    return execute()
+  File "index_html.generated.py", line 20, in _tt_execute
+    _tt_tmp = _tt_modules.Template("_macros.html", pager=pager, url=base_url)  # index.html:18 (via index.html:14)
+NameError: global name 'pager' is not defined
+2018-01-01 20:20:17,022 - tornado.access - web.py[line:2063] - ERROR - 500 GET / (::1) 15.00ms
+2018-01-01 20:37:33,109 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET / (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0', 'Connection': 'keep-alive', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\home.py", line 15, in get
+    self.render("index.html", base_url=base_url)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 865, in render_string
+    return t.generate(**namespace)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 348, in generate
+    return execute()
+  File "index_html.generated.py", line 19, in _tt_execute
+    _tt_tmp = _tt_modules.Template("_macros.html", pager=pager, url=base_url)  # index.html:18
+NameError: global name 'pager' is not defined
+2018-01-01 20:37:33,109 - tornado.access - web.py[line:2063] - ERROR - 500 GET / (::1) 16.00ms
+2018-01-01 20:38:14,013 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET / (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0', 'Connection': 'keep-alive', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\home.py", line 15, in get
+    self.render("index.html", base_url=base_url,pager=pager)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 865, in render_string
+    return t.generate(**namespace)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 348, in generate
+    return execute()
+  File "index_html.generated.py", line 19, in _tt_execute
+    _tt_tmp = _tt_modules.Template("_macros.html", pager=pager, url=base_url)  # index.html:18
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1598, in render
+    rendered = self._active_modules[name].render(*args, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 3009, in render
+    **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 2964, in render_string
+    return self.handler.render_string(path, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 865, in render_string
+    return t.generate(**namespace)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 348, in generate
+    return execute()
+  File "_macros_html.generated.py", line 28, in _tt_execute
+    _tt_tmp = pager.build_url(url, p, params)  # _macros.html:12
+NameError: global name 'params' is not defined
+2018-01-01 20:38:14,013 - tornado.access - web.py[line:2063] - ERROR - 500 GET / (::1) 31.00ms
+2018-01-01 20:53:16,971 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET / (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0', 'Connection': 'keep-alive', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\srcReal\controller\home.py", line 17, in get
+    self.render("index.html", base_url=base_url,pager=pager,order_search_params=order_search_params)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 865, in render_string
+    return t.generate(**namespace)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 348, in generate
+    return execute()
+  File "index_html.generated.py", line 19, in _tt_execute
+    _tt_tmp = _tt_modules.Template("_macros.html", pager=pager, url=base_url,params=order_search_params.to_url_params())  # index.html:18
+AttributeError: 'OrderSearchParams' object has no attribute 'to_url_params'
+2018-01-01 20:53:16,971 - tornado.access - web.py[line:2063] - ERROR - 500 GET / (::1) 16.00ms
+2018-01-01 22:38:40,589 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (::1) 135.00ms
+2018-01-01 22:39:13,176 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (::1) 5.00ms
+2018-01-01 22:46:05,081 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (::1) 5.00ms
+2018-01-01 22:47:46,022 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (::1) 5.00ms
+2018-01-01 22:48:16,563 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (::1) 4.00ms
+2018-01-01 22:49:09,325 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (::1) 5.00ms
+2018-01-01 22:49:59,408 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (::1) 6.00ms
+2018-01-01 22:50:26,466 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (::1) 4.00ms
+2018-01-01 22:52:11,653 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (::1) 5.00ms
+2018-01-01 22:52:31,753 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (::1) 6.00ms
+2018-01-01 22:52:38,915 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (::1) 5.00ms
+2018-01-01 23:00:57,306 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (::1) 5.00ms
+2018-01-01 23:02:35,161 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (::1) 8.00ms
+2018-01-01 23:03:36,338 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (::1) 6.00ms
+2018-01-01 23:03:41,134 - tornado.general - web.py[line:1587] - WARNING - 403 POST / (::1): '_xsrf' argument missing from POST
+2018-01-01 23:03:41,134 - tornado.access - web.py[line:2063] - WARNING - 403 POST / (::1) 19.00ms

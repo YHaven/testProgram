@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% from model.site_info import SiteCollection %}
+{% from model.constants import Constants %}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>
+        
+    </title>
+    {% block styles %}
+        <link href="{{ static_url('css/bootstrap.css') }}" rel="stylesheet" >
+        <link href="{{ static_url('css/common.css') }}" rel="stylesheet">
+        {% block private_stylesheet %}
+        {% end %}
+    {% end %}
+</head>
+<body>
+
+{% block main %}
+    <div class="content-block">
+        {% block content %}
+
+        {% end %}
+    </div>
+    
+{% end %}
+
+{% block base_script %}
+    <script src="{{ static_url('js/jquery-2.2.1.min.js') }}"></script>
+    <script src="{{ static_url('js/bootstrap.min.js') }}"></script>
+    <script src="//cdn.bootcss.com/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>
+    <script src="{{ static_url('js/floatButton.js') }}"></script>
+{% end %}
+{% block script %}
+{% end %}
+</body>
+</html>
