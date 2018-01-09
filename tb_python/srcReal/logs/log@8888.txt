@@ -1,2 +1,219 @@
 2018-01-07 00:00:21,641 - apscheduler.scheduler - base.py[line:936] - WARNING - Error getting due jobs from job store 'default': (_mysql_exceptions.OperationalError) (2013, 'Lost connection to MySQL server during query') [SQL: u'SELECT apscheduler_jobs.id, apscheduler_jobs.job_state \nFROM apscheduler_jobs \nWHERE apscheduler_jobs.next_run_time <= %s ORDER BY apscheduler_jobs.next_run_time'] [parameters: (1515254400.052,)]
 2018-01-07 00:00:31,823 - apscheduler.executors.default - base.py[line:120] - WARNING - Run time of job "flush_all_cache (trigger: cron[day='*', hour='0'], next run at: 2018-01-07 00:00:00 CST)" was missed by 0:00:31.823000
+2018-01-09 00:21:28,098 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET /product/add (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/product/add', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': 'localhost:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 'Connection': 'keep-alive', 'Cookie': '_xsrf=2|e0209e1a|160d6a4e5512e4271f88a1daeb1cb1f7|1515428479', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1509, in _execute
+    result = method(*self.path_args, **self.path_kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\testProgram\tb_python\srcReal\controller\home.py", line 55, in get
+    base_url = self.reverse_url('productadd')
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1394, in reverse_url
+    return self.application.reverse_url(name, *args)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 2042, in reverse_url
+    raise KeyError("%s not found in named urls" % name)
+KeyError: 'productadd not found in named urls'
+2018-01-09 00:21:28,115 - tornado.access - web.py[line:2063] - ERROR - 500 GET /product/add (::1) 16.00ms
+2018-01-09 00:22:56,023 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception POST /product/add (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='POST', uri='/product/add', version='HTTP/1.1', remote_ip='::1', headers={'Origin': 'http://localhost:8888', 'Content-Length': '713', 'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate', 'Host': 'localhost:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'Upgrade-Insecure-Requests': '1', 'Connection': 'keep-alive', 'Referer': 'http://localhost:8888/product/add', 'Cache-Control': 'max-age=0', 'Cookie': '_xsrf=2|e0209e1a|160d6a4e5512e4271f88a1daeb1cb1f7|1515428479', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundaryTjH36A1SD7JcXlVP'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 292, in wrapper
+    result = func(*args, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\testProgram\tb_python\srcReal\controller\home.py", line 86, in post
+    self.write_json(self,respon_json)
+TypeError: write_json() takes exactly 2 arguments (3 given)
+2018-01-09 00:22:56,026 - tornado.access - web.py[line:2063] - ERROR - 500 POST /product/add (::1) 24.00ms
+2018-01-09 23:20:33,926 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET / (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': 'localhost:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 'Connection': 'keep-alive', 'If-None-Match': '"bd820c4336cea506d1f39d8e03bfd3936895caa4"', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1063, in run
+    yielded = self.gen.throw(*exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\testProgram\tb_python\srcReal\controller\home.py", line 21, in get
+    pager = yield self.async_do(HomeService.page_order, self.db, pager, order_search_params)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\concurrent\futures\_base.py", line 398, in result
+    return self.__get_result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\concurrent\futures\thread.py", line 55, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\testProgram\tb_python\srcReal\service\home_service.py", line 23, in page_order
+    if search_params.show_comments_count:
+AttributeError: 'OrderSearchParams' object has no attribute 'show_comments_count'
+2018-01-09 23:20:33,940 - tornado.access - web.py[line:2063] - ERROR - 500 GET / (::1) 93.00ms
+2018-01-09 23:22:34,171 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET / (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': 'localhost:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1069, in run
+    yielded = self.gen.send(value)
+  File "E:\pythonFile\pythonProgram\pythonSrc\testProgram\tb_python\srcReal\controller\home.py", line 22, in get
+    self.render("index.html", base_url=base_url,pager=pager,order_search_params=order_search_params)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 865, in render_string
+    return t.generate(**namespace)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 348, in generate
+    return execute()
+  File "index_html.generated.py", line 40, in _tt_execute
+    _tt_tmp = _tt_modules.Template("_macros.html", pager=pager, url=base_url, params=order_search_params.to_url_params())  # index.html:101 (via base.html:22, base.html:20)
+AttributeError: 'OrderSearchParams' object has no attribute 'to_url_params'
+2018-01-09 23:22:34,176 - tornado.access - web.py[line:2063] - ERROR - 500 GET / (::1) 160.00ms
+2018-01-09 23:28:43,986 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET /?pageNo=1 (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/?pageNo=1', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': 'localhost:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 'Connection': 'keep-alive', 'Cookie': '_xsrf=2|9fce0b58|05b5090f5e2efb4fe71bcc8f3c482e34|1515511354', 'Cache-Control': 'max-age=0', 'If-None-Match': '"f6e7af85ab784bd65d23cbe309b24ecda39ac610"', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1069, in run
+    yielded = self.gen.send(value)
+  File "E:\pythonFile\pythonProgram\pythonSrc\testProgram\tb_python\srcReal\controller\home.py", line 22, in get
+    self.render("index.html", base_url=base_url,pager=pager,order_search_params=order_search_params)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 865, in render_string
+    return t.generate(**namespace)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 348, in generate
+    return execute()
+  File "index_html.generated.py", line 34, in _tt_execute
+    for i, order in pager.result:  # index.html:30 (via base.html:22, base.html:20)
+TypeError: 'MzOrder' object is not iterable
+2018-01-09 23:28:43,989 - tornado.access - web.py[line:2063] - ERROR - 500 GET /?pageNo=1 (::1) 59.00ms
+2018-01-09 23:33:47,970 - tornado.application - template.py[line:320] - ERROR - index.html code:
+ 1  def _tt_execute():  # base.html:0
+ 2      _tt_buffer = []  # base.html:0
+ 3      _tt_append = _tt_buffer.append  # base.html:0
+ 4      _tt_append('<!DOCTYPE html>\n')  # base.html:2
+ 5      from model.site_info import SiteCollection  # base.html:2
+ 6      _tt_append('\n')  # base.html:3
+ 7      from model.constants import Constants  # base.html:3
+ 8      _tt_append('\n<html>\n<head>\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<meta charset="UTF-8">\n<title>\n</title>\n')  # base.html:11
+ 9      _tt_append('\n<link href="')  # base.html:12 (via base.html:11)
+10      _tt_tmp = static_url('css/bootstrap.css')  # base.html:12 (via base.html:11)
+11      if isinstance(_tt_tmp, _tt_string_types): _tt_tmp = _tt_utf8(_tt_tmp)  # base.html:12 (via base.html:11)
+12      else: _tt_tmp = _tt_utf8(str(_tt_tmp))  # base.html:12 (via base.html:11)
+13      _tt_tmp = _tt_utf8(xhtml_escape(_tt_tmp))  # base.html:12 (via base.html:11)
+14      _tt_append(_tt_tmp)  # base.html:12 (via base.html:11)
+15      _tt_append('" rel="stylesheet" >\n<link href="')  # base.html:13 (via base.html:11)
+16      _tt_tmp = static_url('css/common.css')  # base.html:13 (via base.html:11)
+17      if isinstance(_tt_tmp, _tt_string_types): _tt_tmp = _tt_utf8(_tt_tmp)  # base.html:13 (via base.html:11)
+18      else: _tt_tmp = _tt_utf8(str(_tt_tmp))  # base.html:13 (via base.html:11)
+19      _tt_tmp = _tt_utf8(xhtml_escape(_tt_tmp))  # base.html:13 (via base.html:11)
+20      _tt_append(_tt_tmp)  # base.html:13 (via base.html:11)
+21      _tt_append('" rel="stylesheet">\n')  # base.html:14 (via base.html:11)
+22      _tt_append('\n')  # base.html:15 (via base.html:14, base.html:11)
+23      _tt_append('\n')  # base.html:16 (via base.html:11)
+24      _tt_append('\n</head>\n<body>\n')  # base.html:20
+25      _tt_append('\n<div class="content-block">\n')  # base.html:22 (via base.html:20)
+26      _tt_append('\n<div class="search-form"></div>\n<div class="opration-button">\n<form action=\'/file/upload\' id="uploadForm" enctype="multipart/form-data" method=\'post\'>\n')  # index.html:7 (via base.html:22, base.html:20)
+27      _tt_tmp = _tt_modules.xsrf_form_html()  # index.html:7 (via base.html:22, base.html:20)
+28      if isinstance(_tt_tmp, _tt_string_types): _tt_tmp = _tt_utf8(_tt_tmp)  # index.html:7 (via base.html:22, base.html:20)
+29      else: _tt_tmp = _tt_utf8(str(_tt_tmp))  # index.html:7 (via base.html:22, base.html:20)
+30      _tt_append(_tt_tmp)  # index.html:7 (via base.html:22, base.html:20)
+31      _tt_append('\n<input type="file" id="exlFile" name="fileName" class="btn btn-default" accept=".csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"></input>\n<input type="button" class="btn" onclick="fileUploadExl2()" value="\xe4\xb8\x8a\xe4\xbc\xa0Excle">\n</form>\n</div>\n<div class="data-list">\n<table class="data-table table">\n<thead>\n<th>\xe5\xba\x8f\xe5\x8f\xb7</th>\n<th>\xe7\x8a\xb6\xe6\x80\x81</th>\n<th>\xe6\x97\xa5\xe6\x9c\x9f</th>\n<th>\xe5\xa7\x93\xe5\x90\x8d</th>\n<th>\xe6\x89\x8b\xe6\x9c\xba</th>\n<th>\xe5\x9c\xb0\xe5\x9d\x80</th>\n<th>\xe5\xbf\xab\xe9\x80\x92\xe5\x85\xac\xe5\x8f\xb8</th>\n<th>\xe8\xbf\x90\xe5\x8d\x95\xe5\x8f\xb7</th>\n<th>\xe8\xbf\x90\xe8\xb4\xb9</th>\n<th>\xe9\x87\x91\xe9\xa2\x9d</th>\n<th>\xe5\xa4\x87\xe6\xb3\xa8</th>\n<th>\xe6\xa0\xb8\xe5\xaf\xb9\xe9\x87\x91\xe9\xa2\x9d</th>\n<th>\xe6\xa0\xb8\xe5\xaf\xb9\xe6\x98\x8e\xe7\xbb\x86</th>\n</thead>\n')  # index.html:29 (via base.html:22, base.html:20)
+32      if pager and pager.result:  # index.html:29 (via base.html:22, base.html:20)
+33          _tt_append('\n')  # index.html:30 (via base.html:22, base.html:20)
+34          for order in pager.result:  # index.html:30 (via base.html:22, base.html:20)
+35              _tt_append('\n<tbody>\n<td>')  # index.html:32 (via base.html:22, base.html:20)
+36              _tt_tmp = i++  # index.html:32 (via base.html:22, base.html:20)
+37              if isinstance(_tt_tmp, _tt_string_types): _tt_tmp = _tt_utf8(_tt_tmp)  # index.html:32 (via base.html:22, base.html:20)
+38              else: _tt_tmp = _tt_utf8(str(_tt_tmp))  # index.html:32 (via base.html:22, base.html:20)
+39              _tt_tmp = _tt_utf8(xhtml_escape(_tt_tmp))  # index.html:32 (via base.html:22, base.html:20)
+40              _tt_append(_tt_tmp)  # index.html:32 (via base.html:22, base.html:20)
+41              _tt_append('</td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n<td></td>\n</tbody>\n')  # index.html:46 (via base.html:22, base.html:20)
+42              pass  # index.html:30 (via base.html:22, base.html:20)
+43          _tt_append('\n')  # index.html:47 (via base.html:22, base.html:20)
+44          pass  # index.html:29 (via base.html:22, base.html:20)
+45      _tt_append('\n</table>\n</div>\n<script type="text/javascript">\nfunction fileUploadExl(){\nvar formData = new FormData();\nformData.append(\'_xsrf\', $(\'input[name=_xsrf]\').val());\nformData.append(\'fileName\', $(\'input[type=file]\')[0].files[0]);\n$.ajax({\nurl: \'/file/upload\',\ndata: formData,\ntype: \'POST\',\ncontentType: false,\nprocessData: false,\nsuccess: function(data){\nvar obj = jQuery.parseJSON(data);\nalert(obj.result);\n// TODO\n},\nerror: function(data){\nvar obj = jQuery.parseJSON(data);\nalert(data.result);\n}\n})\n}\nfunction fileUploadExl2(){\nvar actionUrl = \'/file/upload\';\nvar oFile = document.getElementById(\'exlFile\').files[0]; //\xe8\xaf\xbb\xe5\x8f\x96\xe6\x96\x87\xe4\xbb\xb6\nvar vFD = new FormData(document.getElementById(\'uploadForm\')), //\xe5\xbb\xba\xe7\xab\x8b\xe8\xaf\xb7\xe6\xb1\x82\xe5\x92\x8c\xe6\x95\xb0\xe6\x8d\xae\noXHR = new XMLHttpRequest();\noXHR.addEventListener(\'load\', function(resUpload) {\n//\xe6\x88\x90\xe5\x8a\x9f\nconsole.log(resUpload)\n}, false);\noXHR.addEventListener(\'success\', function(resUpload) {\n//\xe6\x88\x90\xe5\x8a\x9f\nconsole.log(resUpload)\n}, false);\noXHR.addEventListener(\'error\', function() {\n//\xe5\xa4\xb1\xe8\xb4\xa5\n}, false);\noXHR.addEventListener(\'abort\', function() {\n//\xe4\xb8\x8a\xe4\xbc\xa0\xe4\xb8\xad\xe6\x96\xad\n}, false);\noXHR.open(\'POST\', actionUrl);\noXHR.send(vFD);\n}\n</script>\n')  # index.html:101 (via base.html:22, base.html:20)
+46      _tt_tmp = _tt_modules.Template("_macros.html", pager=pager, url=base_url, params=order_search_params.to_url_params())  # index.html:101 (via base.html:22, base.html:20)
+47      if isinstance(_tt_tmp, _tt_string_types): _tt_tmp = _tt_utf8(_tt_tmp)  # index.html:101 (via base.html:22, base.html:20)
+48      else: _tt_tmp = _tt_utf8(str(_tt_tmp))  # index.html:101 (via base.html:22, base.html:20)
+49      _tt_append(_tt_tmp)  # index.html:101 (via base.html:22, base.html:20)
+50      _tt_append('\n')  # index.html:103 (via base.html:22, base.html:20)
+51      _tt_append('\n</div>\n')  # base.html:27 (via base.html:20)
+52      _tt_append('\n')  # base.html:29
+53      _tt_append('\n<script src="')  # base.html:30 (via base.html:29)
+54      _tt_tmp = static_url('js/jquery-2.2.1.min.js')  # base.html:30 (via base.html:29)
+55      if isinstance(_tt_tmp, _tt_string_types): _tt_tmp = _tt_utf8(_tt_tmp)  # base.html:30 (via base.html:29)
+56      else: _tt_tmp = _tt_utf8(str(_tt_tmp))  # base.html:30 (via base.html:29)
+57      _tt_tmp = _tt_utf8(xhtml_escape(_tt_tmp))  # base.html:30 (via base.html:29)
+58      _tt_append(_tt_tmp)  # base.html:30 (via base.html:29)
+59      _tt_append('"></script>\n<script src="')  # base.html:31 (via base.html:29)
+60      _tt_tmp = static_url('js/bootstrap.min.js')  # base.html:31 (via base.html:29)
+61      if isinstance(_tt_tmp, _tt_string_types): _tt_tmp = _tt_utf8(_tt_tmp)  # base.html:31 (via base.html:29)
+62      else: _tt_tmp = _tt_utf8(str(_tt_tmp))  # base.html:31 (via base.html:29)
+63      _tt_tmp = _tt_utf8(xhtml_escape(_tt_tmp))  # base.html:31 (via base.html:29)
+64      _tt_append(_tt_tmp)  # base.html:31 (via base.html:29)
+65      _tt_append('"></script>\n<script src="//cdn.bootcss.com/bootstrap-hover-dropdown/2.2.1/bootstrap-hover-dropdown.min.js"></script>\n<script src="')  # base.html:33 (via base.html:29)
+66      _tt_tmp = static_url('js/floatButton.js')  # base.html:33 (via base.html:29)
+67      if isinstance(_tt_tmp, _tt_string_types): _tt_tmp = _tt_utf8(_tt_tmp)  # base.html:33 (via base.html:29)
+68      else: _tt_tmp = _tt_utf8(str(_tt_tmp))  # base.html:33 (via base.html:29)
+69      _tt_tmp = _tt_utf8(xhtml_escape(_tt_tmp))  # base.html:33 (via base.html:29)
+70      _tt_append(_tt_tmp)  # base.html:33 (via base.html:29)
+71      _tt_append('"></script>\n')  # base.html:34 (via base.html:29)
+72      _tt_append('\n')  # base.html:35
+73      _tt_append('\n')  # base.html:36 (via base.html:35)
+74      _tt_append('\n</body>\n</html>\n')  # base.html:39
+75      return _tt_utf8('').join(_tt_buffer)  # base.html:0
+2018-01-09 23:33:47,971 - tornado.application - web.py[line:1590] - ERROR - Uncaught exception GET /?pageNo=1 (::1)
+HTTPServerRequest(protocol='http', host='localhost:8888', method='GET', uri='/?pageNo=1', version='HTTP/1.1', remote_ip='::1', headers={'Accept-Language': 'zh-CN,zh;q=0.8', 'Accept-Encoding': 'gzip, deflate, sdch', 'Host': 'localhost:8888', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36', 'Connection': 'keep-alive', 'Cookie': '_xsrf=2|9fce0b58|05b5090f5e2efb4fe71bcc8f3c482e34|1515511354', 'Cache-Control': 'max-age=0', 'Upgrade-Insecure-Requests': '1'})
+Traceback (most recent call last):
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 1511, in _execute
+    result = yield result
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1055, in run
+    value = future.result()
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\concurrent.py", line 238, in result
+    raise_exc_info(self._exc_info)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\gen.py", line 1069, in run
+    yielded = self.gen.send(value)
+  File "E:\pythonFile\pythonProgram\pythonSrc\testProgram\tb_python\srcReal\controller\home.py", line 22, in get
+    self.render("index.html", base_url=base_url,pager=pager,order_search_params=order_search_params)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 724, in render
+    html = self.render_string(template_name, **kwargs)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\web.py", line 862, in render_string
+    t = loader.load(template_name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 427, in load
+    self.templates[name] = self._create_template(name)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 455, in _create_template
+    template = Template(f.read(), name=name, loader=self)
+  File "E:\pythonFile\pythonProgram\pythonSrc\venu\lib\site-packages\tornado\template.py", line 317, in __init__
+    "exec", dont_inherit=True)
+  File "index_html.generated.py", line 36
+    _tt_tmp = i++  # index.html:32 (via base.html:22, base.html:20)
+                                                                  ^
+SyntaxError: invalid syntax
+2018-01-09 23:33:47,973 - tornado.access - web.py[line:2063] - ERROR - 500 GET /?pageNo=1 (::1) 120.00ms
+2018-01-09 23:43:04,770 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (127.0.0.1) 5.00ms
+2018-01-09 23:43:20,747 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (127.0.0.1) 11.00ms
+2018-01-09 23:44:43,426 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (127.0.0.1) 5.00ms
+2018-01-09 23:45:04,221 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (127.0.0.1) 5.00ms
+2018-01-09 23:45:13,428 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (127.0.0.1) 5.00ms
+2018-01-09 23:45:34,171 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (127.0.0.1) 5.00ms
+2018-01-09 23:45:40,598 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (127.0.0.1) 5.00ms
+2018-01-09 23:45:55,273 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (127.0.0.1) 6.00ms
+2018-01-09 23:46:10,315 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (127.0.0.1) 5.00ms
+2018-01-09 23:46:13,720 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (127.0.0.1) 6.00ms
+2018-01-09 23:52:17,693 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (::1) 5.00ms
+2018-01-09 23:52:50,345 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (::1) 5.00ms
+2018-01-09 23:52:53,319 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (::1) 5.00ms
+2018-01-09 23:53:00,424 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (::1) 5.00ms
+2018-01-09 23:53:13,819 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (::1) 5.00ms
+2018-01-09 23:53:26,684 - tornado.access - web.py[line:2063] - WARNING - 404 GET /static/css/bootstrap.css.map (::1) 6.00ms

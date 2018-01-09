@@ -18,6 +18,7 @@ class HomeHandler(BaseHandler):
         pager = Pager(self)
         base_url = self.reverse_url('index')
         order_search_params = OrderSearchParams(self)
+        pager = yield self.async_do(HomeService.page_order, self.db, pager, order_search_params)
         self.render("index.html", base_url=base_url,pager=pager,order_search_params=order_search_params)
 
 
@@ -41,13 +42,49 @@ class LoginHandler(BaseHandler):
             self.add_message('danger', u'登陆失败！用户名或密码错误，请重新登陆。')
             self.get()
 
-
 class LogoutHandler(BaseHandler):
 
     def get(self):
         self.logout()
         self.add_message('success', u'您已退出登陆。')
         self.redirect("/")
+
+class ProductAdd(BaseHandler):
+
+    def get(self):
+        pager = Pager(self)
+        base_url = self.reverse_url('index')
+        order_search_params = OrderSearchParams(self)
+        self.render("productAdd.html", base_url=base_url,pager=pager,order_search_params=order_search_params)
+
+    @gen.coroutine
+    def post(self):
+        product_name = self.get_argument('productName')
+        class_name = self.get_argument('className')
+        price = self.get_argument('price')
+        other_name = self.get_argument('otherName')
+        picture = self.get_argument('picture')
+        ret = {'result': 'OK'}
+
+
+        product_dic = dict(
+            productName = product_name,
+            className = class_name,
+            otherName = other_name,
+            price = price,
+            picture = picture,
+        )
+        status = 'xxxxx'
+        productinfo = self.async_do(HomeService.save_product, self.db, product_dic)
+        if productinfo is not None :
+            status = 'yes'
+        else:
+            status = 'no'
+
+        ret['status'] = status
+        respon_json = tornado.escape.json_encode(ret)  
+        self.write_json(respon_json)
+
 
 
 class FileUpload(BaseHandler):

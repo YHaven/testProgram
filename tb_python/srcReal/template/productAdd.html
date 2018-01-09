@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="search-form"></div>
+    <div class="opration-button">
+        <form action='/product/add' id="dataForm" enctype="multipart/form-data" method='post'>
+            {% module xsrf_form_html() %}
+            <table class="table">
+            	<tr>
+            		<td>宝贝名称：</td>
+            		<td><input type="text" name="productName"></td>
+            	</tr>
+            	<tr>
+            		<td>类别：</td>
+            		<td><input type="text" name="className"></td>
+            	</tr>
+            	<tr>
+            		<td>价格：</td>
+            		<td><input type="number" name="price" ></td>
+            	</tr>
+            	<tr>
+            		<td>别名：</td>
+            		<td><input type="text" name="otherName"></td>
+            	</tr>
+            	<tr>
+            		<td>图片：</td>
+            		<td><input type="text" name="picture"></td>
+            	</tr>
+            </table>
+            <input type="submit" class="btn" value="提交">
+       </form>
+    </div>
+    
+
+    <script type="text/javascript">
+        
+
+    </script>
+
+{% module Template("_macros.html", pager=pager, url=base_url, params=order_search_params.to_url_params()) %}
+
+{% end %}

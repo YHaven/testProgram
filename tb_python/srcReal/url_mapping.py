@@ -9,5 +9,5 @@ handlers = [
     url(r"/auth/login", controller.home.LoginHandler, name="login"),
     url(r"/auth/logout", controller.home.LogoutHandler, name="logout"),
     url(r"/file/upload", controller.home.FileUpload, name="upload"),
-
+    url(r"/product/add", controller.home.ProductAdd, name="productAdd"),
 ]

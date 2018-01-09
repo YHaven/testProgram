@@ -32,7 +32,6 @@ class MzOrder(DbBase,DbInit):
     printTime_ = Column(DateTime)
     userMark_ = Column(String(255))
     products_ = Column(String(255))
-    expressPrice_ = Column(Float(11))
     orderPrice_ = Column(Float(11))
     user_ = Column(Integer)
 

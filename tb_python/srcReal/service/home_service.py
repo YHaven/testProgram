@@ -1,6 +1,7 @@
 # coding=utf-8
 from model.models import MzOrder
 from model.models import MzProduct
+from . import BaseService
 from datetime import datetime
 
 class HomeService(object):
@@ -8,6 +9,25 @@ class HomeService(object):
     @staticmethod
     def get_order(db_session, expressNumber_,printTime_):
         return db_session.query(MzOrder).filter(MzOrder.printTime_ == printTime_,MzOrder.expressNumber_ == expressNumber_).first()
+    
+    @staticmethod
+    def page_order(db_session, pager, search_params):
+        query = db_session.query(MzOrder)
+        count = None
+        if search_params:
+            if search_params.printTime:
+                count = None
+                query = query.filter(MzOrder.printTime_ >= search_params.printTime)
+        pager = BaseService.query_pager(query, pager, count)
+        # if pager.result:
+            # if search_params.show_comments_count:
+            #     result = []
+            #     for order, comments_count in pager.result:
+            #         order.fetch_comments_count(comments_count if comments_count else 0)
+            #         result.append(order)
+            #     pager.result = result
+        return pager
+
 
     @staticmethod
     def get_order_by_id(db_session, order_id):
@@ -77,6 +97,27 @@ class HomeService(object):
     def get_product_by_id(db_session, product_id):
         product = db_session.query(MzProduct).get(product_id)
         return product
+
+    @staticmethod
+    def save_product(db_session, product):
+        print product['picture']
+        if(product['price'] != None):
+            product['price'] = float(product['price'])
+        else:
+            product['price'] = 0
+        print '111111'
+        product_to_save = MzProduct(
+            productName_ = product['productName'],
+            className_ = product['className'],
+            otherName_ = product['otherName'],
+            price_ = product['price'],
+            status_ = 0,
+            picture_ = product['picture'],
+        )
+        print product['picture']
+        db_session.add(product_to_save)
+        db_session.commit()
+        return product_to_save
 
     @staticmethod
     def update_product(db_session, oproduct_id, product_to_update):
