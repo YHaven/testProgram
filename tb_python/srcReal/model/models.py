@@ -33,6 +33,7 @@ class MzOrder(DbBase,DbInit):
     userMark_ = Column(String(255))
     products_ = Column(String(255))
     orderPrice_ = Column(Float(11))
+    checkPrice_ = Column(Float(11))
     user_ = Column(Integer)
 
 

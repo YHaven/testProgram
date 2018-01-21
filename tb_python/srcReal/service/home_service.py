@@ -3,6 +3,8 @@ from model.models import MzOrder
 from model.models import MzProduct
 from . import BaseService
 from datetime import datetime
+import logging
+logger = logging.getLogger(__name__)
 
 class HomeService(object):
 
@@ -12,7 +14,8 @@ class HomeService(object):
     
     @staticmethod
     def page_order(db_session, pager, search_params):
-        query = db_session.query(MzOrder)
+        query = db_session.query(MzOrder).order_by(MzOrder.createDate_.desc())
+        query = query.filter(MzOrder.removeDate_ == None)
         count = None
         if search_params:
             if search_params.printTime:
@@ -92,6 +95,35 @@ class HomeService(object):
         return order_to_save
 
 
+    @staticmethod
+    def page_product_byorder(db_session, search_params):
+        query = db_session.query(MzProduct)
+        query = query.filter(MzProduct.removeDate_ == None)
+        count = None
+        # query = query.filter(MzProduct.removeDate_ == None)
+        print search_params.productName
+        if search_params:
+            if search_params.className:
+                query = query.filter(MzProduct.className_ == search_params.className)
+            if search_params.otherName != '':
+                query = query.filter(MzProduct.otherName_ == search_params.otherName)
+            if search_params.productName:
+                query = query.filter(MzProduct.productName_ == search_params.productName)
+
+        # pager = BaseService.query_pager(query, pager, count)
+        pager = query.first()
+        return pager
+
+    @staticmethod
+    def page_product(db_session, pager, search_params):
+        query = db_session.query(MzProduct).order_by(MzProduct.createDate_.desc())
+        query = query.filter(MzProduct.removeDate_ == None)
+        count = None
+        if search_params:
+            if search_params.removeDate:
+                count = None
+        pager = BaseService.query_pager(query, pager, count)
+        return pager
 
     @staticmethod
     def get_product_by_id(db_session, product_id):
@@ -105,7 +137,6 @@ class HomeService(object):
             product['price'] = float(product['price'])
         else:
             product['price'] = 0
-        print '111111'
         product_to_save = MzProduct(
             productName_ = product['productName'],
             className_ = product['className'],
@@ -114,7 +145,6 @@ class HomeService(object):
             status_ = 0,
             picture_ = product['picture'],
         )
-        print product['picture']
         db_session.add(product_to_save)
         db_session.commit()
         return product_to_save
@@ -132,7 +162,29 @@ class HomeService(object):
 
     @staticmethod
     def delete_product(db_session, product_id):
-        count = db_session.query(MzProduct).filter(MzProduct.id == product_id).delete()
-        if count:
-            db_session.commit()
+        # try:
+            product = db_session.query(MzProduct).get(product_id)
+            if product:
+                db_session.delete(product)
+                db_session.commit()
+            return product
+        # except Exception, e:
+        #     logger.exception(e)
+        # return None
+
+    @staticmethod
+    def remove_product(db_session, product_id):
+        count = 0
+        nowStr = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        nowDate = datetime.strptime(nowStr, '%Y-%m-%d %H:%M:%S') 
+        product_to_update = dict(
+            removeDate_ = nowDate,
+        )
+        if product_to_update:
+            if "id" in product_to_update:
+                product_to_update.remove("id")
+            count = db_session.query(MzProduct).filter(MzProduct.id == product_id).update(product_to_update)
+            if count:
+                db_session.commit()
         return count
+

@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="search-form"></div>
+    <div class="alert alert-danger upload-alert" role="alert" style="display:none;">请先选择文件再上传!</div>
+    <div class="search-form">打印时间：</div>
     <div class="opration-button">
         <form action='/file/upload' id="uploadForm" enctype="multipart/form-data" method='post'>
             {% module xsrf_form_html() %}
             <input type="file" id="exlFile" name="fileName" class="btn btn-default"  accept=".csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"></input>
-            <input type="button" class="btn" onclick="fileUploadExl2()" value="上传Excle">
+            <input type="button" class="btn btn-warning" onclick="fileUploadExl2()" value="上传Excle">
        </form>
     </div>
     <style type="text/css">
@@ -14,6 +15,8 @@
       .data-list .data-table thead tr th{text-align: center;}
       .data-list .data-table tbody tr{height: 100px;}
       .data-list .data-table tbody tr td{text-align: center;}
+      .color-green{color: green;}
+      .color-red{color: red;}
     </style>
     <div class="data-list">
         <table class="data-table table">
@@ -39,7 +42,15 @@
                 <tbody>
                   <tr>
                     <td>{{m+1}}</td>
-                    <td>{{order.status_}}</td>
+                    <td>
+                      {% if order.status_ == 0 %}
+                        <i class="glyphicon glyphicon-minus"></i>
+                      {% elif order.status_ == 1 %}
+                        <i class="glyphicon glyphicon-ok color-green"></i>
+                      {% elif order.status_ == 2 %}
+                        <i class="glyphicon glyphicon-remove color-red"></i>
+                      {% end %}
+                    </td>
                     <td>{{order.printTime_}}</td>
                     <td>{{order.consignee_}}</td>
                     <td>{{order.phone_}}</td>
@@ -49,8 +60,10 @@
                     <td>{{order.expressPrice_}}</td>
                     <td>{{order.orderPrice_}}</td>
                     <td>{{order.userMark_}}</td>
-                    <td>{{order.consignee_}}</td>
-                    <td>{{order.consignee_}}</td>
+                    <td>{{order.checkPrice_}}</td>
+                    <td>
+                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myProductModal" data-id="{{order.id}}" data-mark="{{order.userMark_}}">查看</button>
+                    </td>
                   </tr>
                 </tbody>
               {% end %}
@@ -58,7 +71,101 @@
         </table>
     </div>
     
+
+    <div class="modal fade" id="myProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+          </div>
+          <div class="modal-body">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th>序号</th>
+                    <th>宝贝名称</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>小计</th>
+                  </tr>
+                </thead>  
+                <tbody></tbody>
+                <thead>
+                  <tr>
+                    <th>总计</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th class="totalPrice"></th>
+                  </tr>
+                </thead>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary product-confirm-btn" onclick="checkPrice(this)">确认</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <script type="text/javascript">
+        window.onload = function(){
+          $('#myProductModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var id = button.data('id') // Extract info from data-* attributes
+            var mark = button.data('mark') // Extract info from data-* attributes
+            var modal = $(this)
+            modal.find('.modal-title').text('单子备注：' + mark)
+            modal.find('.product-confirm-btn').attr('orderid',id)
+            $.get("/product/list/byorder",{id:id},function(result){
+                if(result.status === 'true'){
+                  var productList = result.productList;
+                  var totalPrice = 0;
+                   modal.find('tbody').html('')
+                  for (var i = 0; i <= productList.length-1; i++) {
+                    var price = 0
+                    if(productList[i].productNumber_ )
+                      price = productList[i].productNumber_ *productList[i].price_;
+                    totalPrice += price;
+                    var tr = '<tr>';
+                    tr += '<td>'+ (i+1) +'</td>';
+                    tr += '<td>'+ productList[i].productName_ +'</td>';
+                    tr += '<td>'+ productList[i].price_ +'</td>';
+                    tr += '<td>'+ productList[i].productNumber_ +'</td>';
+                    tr += '<td>'+ price +'</td>';
+                    tr += '</tr>';
+                    modal.find('tbody').append($(tr));
+                  };
+                  modal.find('.totalPrice').html(totalPrice)
+                  modal.find('.product-confirm-btn').attr('totalprice',totalPrice)
+                }
+            });
+
+          })
+        }
+
+        function checkPrice(that){
+          var thisDom = $(that);
+          var orderid = thisDom.attr('orderid')
+          var totalPrice = thisDom.attr('totalprice')
+          var _xsrf = $('input[name="_xsrf"]').val()
+          var params = {
+            id: orderid,
+            checkPrice: totalPrice,
+            _xsrf: _xsrf
+          }
+          $.post("/order/check/price",params,function(result){
+            if(result.status === 'true'){
+              window.location.href = window.location.href
+            }else{
+              alert(result.status);
+            }
+          })
+        }
+        
         function fileUploadExl(){
             
             var formData = new FormData();
@@ -86,15 +193,24 @@
         function fileUploadExl2(){
           var actionUrl = '/file/upload';
           var oFile = document.getElementById('exlFile').files[0];    //读取文件
+          if(!oFile){
+            $('.upload-alert').show();
+            setTimeout(function(){
+              $('.upload-alert').hide();
+            },3000)
+            return false;
+          }
           var vFD = new FormData(document.getElementById('uploadForm')),    //建立请求和数据
               oXHR = new XMLHttpRequest();
           oXHR.addEventListener('load', function(resUpload) {
               //成功
-              console.log(resUpload)
+              console.log('成功')
+              window.location.href = window.location.href
           }, false);
           oXHR.addEventListener('success', function(resUpload) {
               //成功
-              console.log(resUpload)
+              console.log('success')
+              window.location.href = window.location.href
           }, false);
           oXHR.addEventListener('error', function() {
               //失败
