@@ -1,0 +1,79 @@
+{% extends '../base.html' %}
+
+{% block content %}
+    <div class="search-form"></div>
+    <div class="opration-block">
+         <input type="button" class="btn btn-primary" onclick="window.location.href='/product/add'" value="添加商品">
+    </div>
+    <style type="text/css">
+      .data-list .data-table thead tr{height: 40px;}
+      .data-list .data-table thead tr th{text-align: center;}
+      .data-list .data-table tbody tr{height: 100px;}
+      .data-list .data-table tbody tr td{text-align: center;}
+    </style>
+    <div class="data-list">
+        {% module xsrf_form_html() %}
+        <table class="data-table table">
+            <thead>
+              <tr>
+                <th style="width:5%">序号</th>
+                <th style="width:5%">状态</th>
+                <th style="width:7%">图片</th>
+                <th style="width:5%">类名</th>
+                <th style="width:8%">名称</th>
+                <th style="width:7%">别名</th>
+                <th style="width:7%">价格</th>
+                <th style="width:7%">创建时间</th>
+                <th style="width:7%">操作</th>
+              </tr>
+            </thead>
+            {% if pager and pager.result %}
+              {% for m, order in enumerate(pager.result) %}
+                <tbody>
+                  <tr>
+                    <td>{{m+1}}</td>
+                    <td>{{order.status_}}</td>
+                    <td>{{order.picture_}}</td>
+                    <td>{{order.className_}}</td>
+                    <td>{{order.productName_}}</td>
+                    <td>{{order.otherName_}}</td>
+                    <td>{{order.price_}}</td>
+                    <td>{{order.created_at}}</td>
+                    <td>
+                        <input type="button" class="btn btn-warning" productid="{{order.id}}" productname="{{order.productName_}}" value="删除" onclick="removeProduct(this)">
+                    </td>
+                  </tr>
+                </tbody>
+              {% end %}
+            {% end %}
+        </table>
+    </div>
+    
+    <script type="text/javascript">
+        function removeProduct(that){
+            var productid = $(that).attr('productid');
+            var productname = $(that).attr('productname');
+            var _xsrf = $('input[name="_xsrf"]').val()
+            var params = {
+                id: productid,
+                _xsrf: _xsrf
+            }
+            var r=confirm("确定删除《"+ productname +"》？!");
+            // return false;
+            if (r==true){
+                $.post("/product/remove",params,function(result){
+                    if(result.status === 'true'){
+                      window.location.href = window.location.href
+                    }else{
+                      alert(result.status);
+                    }
+                })
+            }
+            
+        }
+
+    </script>
+
+{% module Template("_macros.html", pager=pager, url=base_url, params=order_search_params.to_url_params()) %}
+
+{% end %}
