@@ -203,3 +203,22 @@ class MzProduct(DbBase,DbInit):
     price_ = Column(Float(11))
     picture_ = Column(String(255))
 
+class MzProductInfo(DbBase,DbInit):
+    __tablename__ = 't_product_info'
+    id = Column(Integer, primary_key=True)
+    product_code = Column(String(255))           # 产品代码
+    product_name = Column(String(255))           # 产品名
+    material_type = Column(Integer)              # 材质类型
+    model = Column(String(255))                  # 型号
+    surface = Column(Integer)
+    price_cost = Column(Float(11))               # 成本价
+    price_sales = Column(Float(11))              # 销售价格
+    weight = Column(Float(11))                   # 重量
+    size_width = Column(Float(11))               # 宽
+    size_long = Column(Float(11))                # 长
+    size_height = Column(Float(11))              # 高
+    remark = Column(String(255))                 # 备注
+    img_src = Column(String(255))                # 图片
+    category_id = Column(Integer)                # 类别id
+    isdel = Column(Integer, default=0)           # 删除
+

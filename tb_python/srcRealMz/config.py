@@ -45,7 +45,8 @@ database_config = dict(
     # engine_url='postgresql+psycopg2://mhq:1qaz2wsx@localhost:5432/blog',
     # 如果是使用mysql+mysqldb，在确认所有的库表列都是uft8编码后，依然有字符编码报错，
     # 可以尝试在该url末尾加上queryString charset=utf8
-    engine_url='mysql+mysqldb://root:123456@192.168.8.128:3306/mzdata?charset=utf8',
+    # engine_url='mysql+mysqldb://root:123456@192.168.8.128:3306/mzdata?charset=utf8',
+    engine_url='mysql+mysqldb://mzerp:Yhw123456@rds65g8wc23fx23d960bwo.mysql.rds.aliyuncs.com:3306/mz_erp_dev?charset=utf8',
     engine_setting=dict(
         echo=False,  # print sql
         echo_pool=False,

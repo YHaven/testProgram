@@ -6,6 +6,7 @@ import controller.admin_article_type
 import controller.admin_article
 import controller.super
 import controller.product
+import controller.mz_product
 from tornado.web import url
 
 
@@ -62,10 +63,11 @@ handlers = [
 
     # 米尊系统
     url(r"/order/index", controller.product.OrderHandler, name="order.index"),
-    url(r"/file/upload", controller.product.FileUpload, name="upload"),
-    url(r"/product/add", controller.product.ProductAdd, name="productAdd"),
-    url(r"/product/remove", controller.product.ProductRemove, name="productRemove"),
-    url(r"/product/list", controller.product.ProductList, name="productList"),
-    url(r"/product/list/byorder", controller.product.ProductListByOrder, name="productListByOrder"),
-    url(r"/order/check/price", controller.product.OrderCheckPrice, name="orderCheckPrice"),
+    # url(r"/file/upload", controller.product.FileUpload, name="upload"),
+    # url(r"/product/add", controller.product.ProductAdd, name="productAdd"),
+    # url(r"/product/remove", controller.product.ProductRemove, name="productRemove"),
+    # url(r"/product/list", controller.product.ProductList, name="productList"),
+    # url(r"/product/list/byorder", controller.product.ProductListByOrder, name="productListByOrder"),
+    # url(r"/order/check/price", controller.product.OrderCheckPrice, name="orderCheckPrice"),
+    url(r"/product/list", controller.mz_product.ProductList, name="productList"),
 ]
