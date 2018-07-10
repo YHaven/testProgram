@@ -1,0 +1,37 @@
+/*
+ * @Author: yhw 
+ * @Date: 2018-03-21 13:52:17 
+ * @Last Modified by: yhw
+ * @Last Modified time: 2018-06-05 10:58:28
+ */
+@mixin transitionAll($se:0.5s,$type:all) {
+  transition: $type $se cubic-bezier(0.4,0,0.2,1) 0s;
+  -moz-transition:$type $se cubic-bezier(0.4,0,0.2,1) 0s;
+  -webkit-transition:$type $se cubic-bezier(0.4,0,0.2,1) 0s;
+  -o-transition:$type $se cubic-bezier(0.4,0,0.2,1) 0s;
+  -ms-transition:$type $se cubic-bezier(0.4,0,0.2,1) 0s;
+}
+
+// 初始化样式
+ul,ol{list-style:none;margin: 0px;padding: 0px;}
+em,i{font-style: normal;}
+body{font-family:"Microsoft YaHei";}
+.float-left{float: left;}
+.float-right{float: right;}
+.clearfix{clear:both;}
+.clear {clear:both; height:0; font-size:0; line-height:0; overflow:hidden;}
+.cle:after, .clearfix:after, .clear_f:after, .cle_float:after{visibility:hidden; display:block; font-size:0; content:'\20'; clear:both; height:0;}
+.cle, .clearfix, .clear_f, .cle_float{*zoom:1}
+.el-button{border-radius: 0px;}
+/*公用样式*/
+.none{display: none;}
+.on{display: block;}
+.left{float:left;}
+.right{float:right;}
+.hide{display: none;}
+.show{display: block;}
+.clearfix{clear:both;}
+.noPadding{padding-left:0;padding-right:0;}
+.noPaddingLeft{padding-left:0;}
+.paddingLeftNoRight{padding-left:30px;padding-right:0}
+

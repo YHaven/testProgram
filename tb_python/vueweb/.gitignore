@@ -1,0 +1,12 @@
+.DS_Store
+.idea
+node_modules/
+dist/
+npm-debug.log
+test/unit/coverage
+test/e2e/reports
+selenium-debug.log
+npm-debug.log.817650813
+src/components/system/.cq
+/.vs/Dafeng.IYanyi.UserCenterMiddle/v15/.suo
+/.vs/Dafeng.IYanyi.UserCenterMiddle/v15/sqlite3/storage.ide
