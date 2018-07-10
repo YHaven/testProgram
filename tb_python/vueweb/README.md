@@ -1,8 +1,7 @@
-# UserCenterUI 
+
 
 > A Vue.js project
 
-用户中心的前端部分
 
 ## Build Setup
 
