@@ -62,7 +62,7 @@ import { appConfig } from '../common/appConfig'
 import { mapGetters } from 'vuex'
 export default {
   name: 'MZIndex',
-  data () {
+  data() {
     return {
       isLogin: true,
       isTopBarFixed: false,
@@ -74,9 +74,7 @@ export default {
         userImg: '',
         activeIndex: ''
       },
-      currentMap: [
-        'index'
-      ]
+      currentMap: ['index']
     }
   },
   computed: {
@@ -84,7 +82,7 @@ export default {
     ...mapGetters(['userData'])
   },
   watch: {
-    userData (newVal) {
+    userData(newVal) {
       let headImgUrl = newVal.headImg ? newVal.headImg : null
       if (!headImgUrl) {
         this.userHasImg = false
@@ -93,20 +91,23 @@ export default {
         this.org.userImg = headImgUrl
       }
     },
-    '$route': 'show'
+    $route: 'show'
   },
-  mounted () {
+  mounted() {
     this.loginInfo()
     this.addScrollEvent()
     this.show()
   },
   methods: {
-    addScrollEvent () {
+    addScrollEvent() {
       $(window).scroll(this.handleScroll)
     },
     // 滚轮事件
-    handleScroll () {
-      let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+    handleScroll() {
+      let scrollTop =
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop
       if ($('.topBar').length > 0) {
         if (scrollTop > 10) {
           this.isTopBarFixed = true
@@ -115,7 +116,7 @@ export default {
         }
       }
     },
-    show () {
+    show() {
       let fullPath = this.$route.fullPath
       let current = 'index'
       this.currentMap.forEach(element => {
@@ -125,19 +126,18 @@ export default {
       })
       this.current = current
     },
-    loginInfo () {},
-    handleCommand (command) {
+    loginInfo() {},
+    handleCommand(command) {
       switch (command) {
         case 'logout':
           this.logout()
           break
       }
     },
-    login () {},
-    logout () {}
+    login() {},
+    logout() {}
   }
 }
 </script>
 <style>
-
 </style>
