@@ -18,7 +18,16 @@ let webRoutes = [
           AllowAnonymous: true // 添加该字段，表示进入这个路由是不需要登录的
         },
         component (resolve) {
-          require(['../components/index/index.vue'], resolve)
+          require(['../components/admin/index.vue'], resolve)
+        }
+      },
+      { // 设置
+        path: '/setting',
+        meta: {
+          AllowAnonymous: false // 添加该字段，表示进入这个路由是不需要登录的
+        },
+        component (resolve) {
+          require(['../components/admin/setting.vue'], resolve)
         }
       }
     ]
@@ -30,6 +39,12 @@ let webRoutes = [
     },
     component (resolve) {
       require(['../components/Error.vue'], resolve) // 认证授权错误信息页面
+    }
+  },
+  {
+    path: '/login',
+    component (resolve) {
+      require(['../components/Login.vue'], resolve)
     }
   },
   {

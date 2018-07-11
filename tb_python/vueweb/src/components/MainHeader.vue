@@ -1,56 +1,15 @@
 <template>
-  <div class="header"> 
-    <!-- 导航栏目 -->
-    <nav id="topbar"  class="navbar navbar-default topBar" role="navigation" v-bind:class="{topBarFix:isTopBarFixed}">
-        <div class="main-bar">
-          <a class="bar-logo">
-              <img src="/static/img/homeStatic/logo-color.png" alt="米尊" title="米尊" v-if="isTopBarFixed">
-              <img src="/static/img/homeStatic/logo-white.png" alt="米尊" title="米尊" v-else>
-          </a>
-          <div class="bar-login">
-              
-              <div class="loginAndRegistion" v-if="org.userName === ''">
-                  <div class="head-spilt-line">|</div>
-                  <!--注册会跳转到用户中心注册-->
-                  <div class="registion">
-                      <a :href="appConfigUrl.omUrl + '?e=all&a=reg'">
-                        <img src="/static/img/registion-b.png" alt="注册" v-if="isTopBarFixed"/>
-                        <img src="/static/img/registion.png" alt="注册" v-else/>&nbsp;注册
-                      </a>
-                  </div>
-                  <!--登录会先到组织后台判断-->
-                  <div class="login">
-                      <a href="javascript:void(0)" @click="login">
-                        <img src="/static/img/login-b.png" alt="登录" v-if="isTopBarFixed"/>
-                        <img src="/static/img/login.png" alt="登录" v-else/>&nbsp;登录
-                      </a>
-                  </div>
-              </div>
-              <div class="user" v-if="org.userName !== ''">
-                  <div class="head-spilt-line">|</div>
-                  <div class="no-padding userInfo text-center">
-                      <div class="user-name">
-                        <div class="imgIn">
-                          <img :src="org.userImg" v-if="userHasImg" :title="org.userName" onerror="this.src='/static/img/defaultHeadImg.png'">
-                          <img src="../assets/img/defaultHeadImg.png" v-else :title="org.userName" alt="用户头像">
-                        </div>
-                        <span class="name" :title="org.userName">{{org.userName}}</span>
-                        <i class="el-icon-arrow-up"></i>
-                      </div>
-                      <ul class="head-menu">
-                      <li class="head-menu-item" @click="entryOrg('user')">用户中心</li>
-                      <li class="head-menu-item" @click="logout">退&nbsp;&nbsp;&nbsp;&nbsp;出</li>
-                      </ul>
-                  </div>
-              </div>
-          </div>
-          
-          <ul class="nav navbar-nav right">
-              <li class="indexBar" v-bind:class="{current:current === 'index'}"><router-link class="navbar-nav-item" to="/">首页</router-link></li>
-          </ul>
-        </div>
-        
-    </nav>
+  <div class="header clearfix"> 
+    <div class="logo-img"></div>
+    <div class="logo">米尊</div>
+    <el-dropdown class="user-info">
+      <span class="el-dropdown-link">
+        用户<i class="el-icon-arrow-down el-icon--right"></i>
+      </span>
+      <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item @click="logout()">退出</el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>
   </div>
 </template>
 
@@ -82,15 +41,6 @@ export default {
     ...mapGetters(['userData'])
   },
   watch: {
-    userData(newVal) {
-      let headImgUrl = newVal.headImg ? newVal.headImg : null
-      if (!headImgUrl) {
-        this.userHasImg = false
-      } else {
-        this.userHasImg = true
-        this.org.userImg = headImgUrl
-      }
-    },
     $route: 'show'
   },
   mounted() {
@@ -126,18 +76,15 @@ export default {
       })
       this.current = current
     },
-    loginInfo() {},
-    handleCommand(command) {
-      switch (command) {
-        case 'logout':
-          this.logout()
-          break
+    loginInfo() {
+      if(this.userData.userId === ''){
+        this.$router.push({path: '/login'})
       }
     },
-    login() {},
     logout() {}
   }
 }
 </script>
 <style>
+
 </style>

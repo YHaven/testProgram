@@ -16,9 +16,9 @@ appConfig.footerInfo = {
 }
 
 if (isDevelopment === false) {
-  appConfig.tmUrl = '//' // 剧院管家地址
+  appConfig.apihost = '//' // 剧院管家地址
 } else {
-  appConfig.tmUrl = '//' // 剧院管家地址
+  appConfig.apihost = 'http://localhost:8080/' // 剧院管家地址
 }
 // 从后端获取配置
 appConfig.GetFromRemote = function () {

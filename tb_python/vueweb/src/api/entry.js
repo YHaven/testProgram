@@ -1,6 +1,6 @@
 /**
  * 
  */
-// import axios from 'axios'
-// import {appConfig} from '../common/appConfig'
-/* ========= 进入entry从组织后台获取必要信息 ========= */
+import axios from 'axios'
+import {appConfig} from '../common/appConfig'
+export const login = (params) => { return axios.get(appConfig.apihost + `mainvue?api=login`, {params}).then(res => res.data) }
