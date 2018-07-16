@@ -5,33 +5,19 @@
 </template>
 <script>
 import { appConfig } from '../../common/appConfig'
-import SliderBanner from '../common/SliderBanner'
 export default {
-  name: 'IYanyiIndex',
+  name: 'MZSetting',
   components: { SliderBanner },
-  data () {
+  data() {
     return {
-      appConfigUrl: appConfig,
-      banner: [
-        {
-          url: '/static/img/homeStatic/home-banner-1.jpg'
-        }
-      ]
+      appConfigUrl: appConfig
     }
   },
-  mounted () {
+  mounted() {
     // this.addScrollEvent()
     // window.scrollTo(0, 0)
   },
-  methods: {
-    routerGo (url, type) {
-      if (type === 2) {
-        window.open(url)
-      } else {
-        this.$router.push({path: url})
-      }
-    }
-  }
+  methods: {}
 }
 </script>
 

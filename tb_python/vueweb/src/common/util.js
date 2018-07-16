@@ -408,6 +408,16 @@ export default {
     }
     return obj
   },
+  getCookie(name) {
+    var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+    return r ? r[1] : undefined;
+  },
+  setCookie(name,value){
+    var Days = 30;
+    var exp = new Date();
+    exp.setTime(exp.getTime() + Days*24*60*60*1000);
+    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();
+  },
   // 公用方法(api请求时,判断请求参数是否有值，有值obj动态添加)
   objAddAttr (attr, value, obj) {
     if (value !== '' && value !== undefined && value.length !== 0) {

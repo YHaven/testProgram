@@ -2,7 +2,7 @@
   <div class="container container-table">
       <div class="row vertical-10p">
         <div class="container c-404">
-          <img src="/static/img/404.jpg" class="center-block logo">
+          <!-- <img src="/static/img/404.jpg" class="center-block logo"> -->
           <div class="text-center col-sm-6 col-sm-offset-3">
             <h1>Sorry,你想访问的 地址有误或不存在</h1>
             <router-link to="/"><span>返回首页</span></router-link>

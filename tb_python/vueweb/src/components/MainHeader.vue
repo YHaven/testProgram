@@ -1,16 +1,24 @@
 <template>
-  <div class="header clearfix"> 
-    <div class="logo-img"></div>
-    <div class="logo">米尊</div>
-    <el-dropdown class="user-info">
-      <span class="el-dropdown-link">
-        用户<i class="el-icon-arrow-down el-icon--right"></i>
-      </span>
-      <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item @click="logout()">退出</el-dropdown-item>
-      </el-dropdown-menu>
-    </el-dropdown>
-  </div>
+    <el-col :span="24" class="header">
+			<el-col :span="10" class="logo" :class="collapsed?'logo-collapse-width':'logo-width'">
+				{{collapsed?'':sysName}}
+			</el-col>
+			<el-col :span="10">
+				<div class="tools" @click.prevent="collapse">
+					<i class="fa fa-align-justify"></i>
+				</div>
+			</el-col>
+			<el-col :span="4" class="userinfo">
+				<el-dropdown trigger="hover">
+					<span class="el-dropdown-link userinfo-inner"><img :src="userData.avatar" /> {{userData.name}}</span>
+					<el-dropdown-menu slot="dropdown">
+						<!-- <el-dropdown-item>我的消息</el-dropdown-item> -->
+						<el-dropdown-item>设置</el-dropdown-item>
+						<el-dropdown-item divided @click.native="logout">退出登录</el-dropdown-item>
+					</el-dropdown-menu>
+				</el-dropdown>
+			</el-col>
+		</el-col>
 </template>
 
 <script>
@@ -25,6 +33,7 @@ export default {
     return {
       isLogin: true,
       isTopBarFixed: false,
+      sysName:'米尊',
       current: 'index',
       currentChild: '',
       appConfigUrl: appConfig,
@@ -45,27 +54,9 @@ export default {
   },
   mounted() {
     this.loginInfo()
-    this.addScrollEvent()
     this.show()
   },
   methods: {
-    addScrollEvent() {
-      $(window).scroll(this.handleScroll)
-    },
-    // 滚轮事件
-    handleScroll() {
-      let scrollTop =
-        window.pageYOffset ||
-        document.documentElement.scrollTop ||
-        document.body.scrollTop
-      if ($('.topBar').length > 0) {
-        if (scrollTop > 10) {
-          this.isTopBarFixed = true
-        } else {
-          this.isTopBarFixed = false
-        }
-      }
-    },
     show() {
       let fullPath = this.$route.fullPath
       let current = 'index'
@@ -77,11 +68,23 @@ export default {
       this.current = current
     },
     loginInfo() {
-      if(this.userData.userId === ''){
-        this.$router.push({path: '/login'})
+      // console.log(this.userData)
+      if (!this.userData.id) {
+        this.$router.push({ path: '/login' })
       }
     },
-    logout() {}
+    logout() {
+      var _this = this
+      this.$confirm('确认退出吗?', '提示', {
+        //type: 'warning'
+      })
+        .then(() => {
+          // sessionStorage.removeItem('user')
+          localStorage.clear()
+          _this.$router.push('/login')
+        })
+        .catch(() => {})
+    }
   }
 }
 </script>

@@ -1,20 +1,20 @@
 <template>
   <div class="home-page">
-    
+    <SliderBanner :banner="banner"></SliderBanner>
   </div>
 </template>
 <script>
 import { appConfig } from '../../common/appConfig'
 import SliderBanner from '../common/SliderBanner'
 export default {
-  name: 'IYanyiIndex',
+  name: 'MZiIndex',
   components: { SliderBanner },
   data () {
     return {
       appConfigUrl: appConfig,
       banner: [
         {
-          url: '/static/img/homeStatic/home-banner-1.jpg'
+          url: '/static/img/banner.png'
         }
       ]
     }
@@ -35,6 +35,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 
 </style>

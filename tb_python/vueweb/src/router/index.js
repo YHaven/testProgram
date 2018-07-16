@@ -29,6 +29,15 @@ let webRoutes = [
         component (resolve) {
           require(['../components/admin/setting.vue'], resolve)
         }
+      },
+      { // 设置
+        path: '/returns',
+        meta: {
+          AllowAnonymous: false // 添加该字段，表示进入这个路由是不需要登录的
+        },
+        component (resolve) {
+          require(['../components/admin/returns.vue'], resolve)
+        }
       }
     ]
   },
